@@ -33,16 +33,16 @@ for(i=0;i<N;i++){
 }
 
 void t_arrivee(int N , processus *p){
-    clock_t debut =clock(); // debut est le temps quand la fct a commencé
+    clock_t debut =clock(); // debut est le temps quand la fct a commencÃ©
     int i=0;
     p[0].arrivee=0;
     p[0].id=0;
-while(getchar()!='\n'); // sert bien à vider le buffer d'entrée
+while(getchar()!='\n'); // sert bien Ã  vider le buffer d'entrÃ©e
 for(i=1;i<N;i++){
     p[i].id=i;
     printf("appuyez sur entrer pour generer l'arrivee du processus PR%d\n",p[i].id);
-    getchar();//attend que l'utilisateur appuie sur entrée
-    // clock() mesure le temps écoulé depuis le debut du programme (en ticks)
+    getchar();//attend que l'utilisateur appuie sur entrÃ©e
+    // clock() mesure le temps Ã©coulÃ© depuis le debut du programme (en ticks)
     p[i].arrivee=(int)(clock()-debut)/CLOCKS_PER_SEC;//on divise par CLOCKS_PER_SEC pour obtenir le temps en secondes
 
 }
@@ -79,7 +79,7 @@ scanf("%lf",&t_observation);
                    printf("------l algorithme FCFS(First Come First Served )------\n");
                    int time=0,termines=0;
                    double s_trotation=0,s_tattente=0;
-                   //tri selon le temps d'arrivée (ordre croissant)
+                   //tri selon le temps d'arrivÃ©e (ordre croissant)
          for(i=0;i<N-1;i++){
             for (j=i+1;j<N;j++){
                 if( p[j].arrivee<p[i].arrivee){
@@ -87,7 +87,7 @@ scanf("%lf",&t_observation);
                     p[j]=p[i];
                     p[i]=temp;}
                    }}
-                // Affichage de l’ordre d’exécution des processus
+                // Affichage de lâ€™ordre dâ€™exÃ©cution des processus
                    printf("\nl ordre d execution des processus :\n");
                    for(i=0;i<N;i++){
                     printf("P%d\t",p[i].id);
@@ -108,7 +108,7 @@ scanf("%lf",&t_observation);
                    p[i].ta=p[i].tr-p[i].duree;//temps d'attente
                    s_trotation+=p[i].tr;
                    s_tattente+=p[i].ta;
-                    // Calcul du débit (nombre de processus terminés dans le temps d’observation)
+                    // Calcul du dÃ©bit (nombre de processus terminÃ©s dans le temps dâ€™observation)
                    if(time<=t_observation){
                     termines++;
                    }
@@ -135,9 +135,9 @@ scanf("%lf",&t_observation);
                double s_trotation=0,s_tattente=0;
                int termines=0;
             for(i=0;i<N;i++){
-           p[i].termine=0;// 0= pas encore exécuté
+           p[i].termine=0;// 0= pas encore exÃ©cutÃ©
            }
-           int finis=0; // nombre de processus terminés
+           int finis=0; // nombre de processus terminÃ©s
            int time =0;
            // Affichage du diagramme de Gantt
            printf(" \n-----le diagramme de gantt-----\n\n");
@@ -146,7 +146,7 @@ scanf("%lf",&t_observation);
             while (finis<N){
             int idx=-1;
             int min_duree=1000000;
-         // Recherche du processus prêt ayant la plus petite durée
+         // Recherche du processus prÃªt ayant la plus petite durÃ©e
             for(i=0;i<N;i++){
                 if(p[i].termine==0&&p[i].arrivee<=time){
                     if(p[i].duree <min_duree){
@@ -161,7 +161,7 @@ scanf("%lf",&t_observation);
             time+=p[idx].duree;  // Avancer le temps selon la duree d'execution
              printf(" %d",time);
 
-            p[idx].termine =1;   // termine = 1 signifie que ce processus a déjà été exécuté
+            p[idx].termine =1;   // termine = 1 signifie que ce processus a dÃ©jÃ  Ã©tÃ© exÃ©cutÃ©
              finis++;
                     //calculs des temps
                    p[idx].tr=time-p[idx].arrivee;
@@ -172,7 +172,7 @@ scanf("%lf",&t_observation);
                     termines++;
                    }
                   }
-            else{    //aucun processus n'est pret on incrémente le temps pour continuer la simulation
+            else{    //aucun processus n'est pret on incrÃ©mente le temps pour continuer la simulation
                     printf("| inactif");
                     time++;
                    printf(" %.2lf",time);
@@ -202,13 +202,13 @@ scanf("%lf",&t_observation);
                             double s_trotation=0,s_tattente=0;
                        for(i=0;i<N;i++){
                            temps_restant[i]=p[i].duree;
-                        p[i].termine=0; //marque les processus comme non terminés
+                        p[i].termine=0; //marque les processus comme non terminÃ©s
                      }
                      printf("\n------Diagramme de Gantt-----\n\n");
                      printf("0");
                      while(finis<N){
 
-                        int idx=-1;  // index du processus sélectionné pour exécution
+                        int idx=-1;  // index du processus sÃ©lectionnÃ© pour exÃ©cution
                         int min_temps_restant = 1000000 ;
 
                         //chercher le processus pret avec le plus petit temps restant >0
@@ -270,7 +270,7 @@ scanf("%lf",&t_observation);
 
                       for(i=0;i<N;i++){
                         temps_restant[i]=p[i].duree;
-                        p[i].termine=0;//marque les processus comme non terminés
+                        p[i].termine=0;//marque les processus comme non terminÃ©s
                       }
                         printf("\n-----Diagramme de Gantt-----\n\n");
                         printf("0");
@@ -285,7 +285,7 @@ scanf("%lf",&t_observation);
                             idx=i ;
                         }}
                         if(idx!=-1){
-                        // Exécution du processus sélectionné pendant 1 unité de temps
+                        // ExÃ©cution du processus sÃ©lectionnÃ© pendant 1 unitÃ© de temps
                             printf(" | PR%d",p[idx].id);
                             temps_restant[idx]--;
                             time++;
@@ -335,7 +335,7 @@ scanf("%lf",&t_observation);
                 while(finis<N){
                         int idx=-1;
                         int max_priority=1000000;
-                        // chercher le processus prêt avec la plus haute priorité(val la plus basse)
+                        // chercher le processus prÃªt avec la plus haute prioritÃ©(val la plus basse)
                         for(i=0;i<N;i++){
                     if(p[i].arrivee<=time&&p[i].termine==0){
                        if(p[i].priority<max_priority){
@@ -345,7 +345,7 @@ scanf("%lf",&t_observation);
                     }
                 }
                   if(idx!=-1){
-                     // exécuter le processus jusqu'à la fin
+                     // exÃ©cuter le processus jusqu'Ã  la fin
                      printf(" | PR%d",p[idx].id);
                      time+=p[idx].duree;
                      printf(" %d",time);
@@ -396,7 +396,7 @@ scanf("%lf",&t_observation);
                       printf("0");
 
                      while(finis < N){
-                      int execute= 0;  // pour savoir si quelqu’un a été exécuté
+                      int execute= 0;  // pour savoir si quelquâ€™un a Ã©tÃ© exÃ©cutÃ©
                      for(i = 0; i < N; i++){
                          if(p[i].arrivee <= time && temps_restant[i] > 0){
                             execute = 1;
@@ -422,7 +422,7 @@ scanf("%lf",&t_observation);
                             }
                         printf(" %d",time);}}
 
-                        // Si aucun processus n’est pret
+                        // Si aucun processus nâ€™est pret
                         if(execute == 0){
                         printf(" | inactif");
                        time++;
@@ -443,7 +443,7 @@ scanf("%lf",&t_observation);
                    nbr_algo++;
                    break;}
         case 7:
-               //Classement selon le temps moyen d’attente (croissant)
+               //Classement selon le temps moyen dâ€™attente (croissant)
 
                for(int i=0;i<nbr_algo-1;i++){
                 for(int j=i+1;j<nbr_algo;j++){
