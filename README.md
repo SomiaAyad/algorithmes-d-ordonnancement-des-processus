@@ -30,4 +30,4 @@ Il permet d’étudier et de comparer plusieurs algorithmes classiques d’ordon
 - Bibliothèque : <string.h> , <time.h>
 - Environnement de dévloppement: Code::Blocks
 ## Créateur
-Somia Ayad
+Somia Ayad 
